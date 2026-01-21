@@ -11,7 +11,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
- * @property UserState $state
+ * @property-read string $username
+ * @property-read string $phone
+ * @property-read string $telegram_id
+ * @property-read string $first_name
+ * @property-read string $last_name
+ * @property-read UserState $state
  */
 final class User extends Model
 {
@@ -30,6 +35,7 @@ final class User extends Model
 
     protected $casts = [
         'id' => 'string',
+        'telegram_id' => 'int',
     ];
 
     public function updatePhoneNumber(string $phone): bool

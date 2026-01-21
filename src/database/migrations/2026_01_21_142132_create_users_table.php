@@ -18,7 +18,7 @@ return new class extends Migration
                 ->nullable()
                 ->comment('Номер телефона пользователя');
 
-            $table->string('telegram_id')
+            $table->id('telegram_id')
                 ->comment('ID пользователя в Telegram');
 
             $table->string('username')

@@ -9,13 +9,14 @@ use App\Enums\UserStateEnum;
 use App\Models\User;
 use App\Models\UserState;
 use Cache;
+use Illuminate\Support\Carbon;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\ApiTestCase;
-use Tests\TelegramAsserts;
+use Tests\TelegramSetup;
 
 final class AwaitingCodeStateTest extends ApiTestCase
 {
-    use TelegramAsserts;
+    use TelegramSetup;
 
     protected function setUp(): void
     {
@@ -96,6 +97,11 @@ final class AwaitingCodeStateTest extends ApiTestCase
         $this->assertDatabaseHas('user_states', [
             'user_id' => $user->id,
             'state' => UserStateEnum::AWAITING_TEST,
+        ]);
+
+        $this->assertDatabaseHas('user_tokens', [
+            'user_id' => $user->id,
+            'expires_at' => Carbon::now()->addMonth(),
         ]);
     }
 }

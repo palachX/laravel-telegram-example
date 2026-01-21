@@ -8,11 +8,11 @@ use App\Enums\UserStateEnum;
 use App\Models\User;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\ApiTestCase;
-use Tests\TelegramAsserts;
+use Tests\TelegramSetup;
 
 final class StartCommandTest extends ApiTestCase
 {
-    use TelegramAsserts;
+    use TelegramSetup;
 
     protected function setUp(): void
     {

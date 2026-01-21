@@ -10,11 +10,11 @@ use App\Models\UserState;
 use Cache;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\ApiTestCase;
-use Tests\TelegramAsserts;
+use Tests\TelegramSetup;
 
 final class AwaitingPhoneStateTest extends ApiTestCase
 {
-    use TelegramAsserts;
+    use TelegramSetup;
 
     protected function setUp(): void
     {

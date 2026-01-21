@@ -16,7 +16,7 @@ class UserFactory extends Factory
     {
         return [
             'phone' => '+79058889977',
-            'telegram_id' => $this->faker->word(),
+            'telegram_id' => $this->faker->numberBetween(100, 500),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];

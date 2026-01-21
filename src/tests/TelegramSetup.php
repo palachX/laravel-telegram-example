@@ -6,7 +6,7 @@ namespace Tests;
 
 use Illuminate\Support\Facades\Http;
 
-trait TelegramAsserts
+trait TelegramSetup
 {
     private const string URL_TELEGRAM_WEBHOOK = '/api/v1/telegram/webhook/';
 

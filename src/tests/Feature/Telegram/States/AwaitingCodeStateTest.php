@@ -2,15 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Telegram\Commands;
+namespace Telegram\States;
 
+use App\DTO\UserCode;
 use App\Enums\UserStateEnum;
 use App\Models\User;
+use App\Models\UserState;
+use Cache;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\ApiTestCase;
 use Tests\TelegramAsserts;
 
-final class StartCommandTest extends ApiTestCase
+final class AwaitingCodeStateTest extends ApiTestCase
 {
     use TelegramAsserts;
 
@@ -19,6 +22,7 @@ final class StartCommandTest extends ApiTestCase
         parent::setUp();
 
         $this->telegramSetup();
+        Cache::flush();
     }
 
     public static function dataSuccessProvider(): iterable
@@ -44,7 +48,7 @@ final class StartCommandTest extends ApiTestCase
                         'type' => 'private',
                     ],
                     'date' => time(),
-                    'text' => '/start',
+                    'text' => '1234',
                 ],
             ],
         ];
@@ -53,6 +57,26 @@ final class StartCommandTest extends ApiTestCase
     #[DataProvider('dataSuccessProvider')]
     public function testSuccessCommand(array $data): void
     {
+        $phone = '+79058889966';
+
+        $user = User::factory([
+            'telegram_id' => $data['message']['from']['id'],
+            'phone' => null,
+        ])->createOne();
+
+        UserState::factory([
+            'state' => UserStateEnum::AWAITING_CODE,
+        ])->for($user)->createOne();
+
+        $userCode = new UserCode(
+            userId: $user->id,
+            phone: $phone,
+            chatId: $user->telegram_id,
+            code: 1234
+        );
+
+        Cache::put('user_code:'.md5($user->id.$user->telegram_id), $userCode);
+
         $this->httpFake(self::URL_TG_SEND_MESSAGE, [
             'ok' => true,
             'result' => [
@@ -65,15 +89,13 @@ final class StartCommandTest extends ApiTestCase
         $response->assertOk();
 
         $this->assertDatabaseHas('users', [
-            'telegram_id' => $data['message']['from']['id'],
-            'first_name' => $data['message']['from']['first_name'],
-            'last_name' => $data['message']['from']['last_name'],
-            'username' => $data['message']['from']['username'],
+            'id' => $user->id,
+            'phone' => $phone,
         ]);
 
         $this->assertDatabaseHas('user_states', [
-            'user_id' => User::query()->where('telegram_id', $data['message']['from']['id'])->first()->id,
-            'state' => UserStateEnum::AWAITING_PHONE,
+            'user_id' => $user->id,
+            'state' => UserStateEnum::AWAITING_TEST,
         ]);
     }
 }

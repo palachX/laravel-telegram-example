@@ -12,10 +12,10 @@ class UserFactory extends Factory
 {
     protected $model = User::class;
 
-    public function definition()
+    public function definition(): array
     {
         return [
-            'phone' => $this->faker->phoneNumber(),
+            'phone' => '+79058889977',
             'telegram_id' => $this->faker->word(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),

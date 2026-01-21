@@ -9,6 +9,7 @@ use Database\Factories\UserStateFactory;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 final class UserState extends Model
 {
@@ -26,4 +27,12 @@ final class UserState extends Model
         'user_id' => 'string',
         'state' => UserStateEnum::class,
     ];
+
+    /**
+     * @return BelongsTo<User, $this>
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }

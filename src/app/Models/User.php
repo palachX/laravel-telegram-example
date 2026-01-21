@@ -10,6 +10,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
+/**
+ * @property UserState $state
+ */
 final class User extends Model
 {
     /** @use HasFactory<UserFactory> */
@@ -28,6 +31,13 @@ final class User extends Model
     protected $casts = [
         'id' => 'string',
     ];
+
+    public function updatePhoneNumber(string $phone): bool
+    {
+        return $this->update([
+            'phone' => $phone,
+        ]);
+    }
 
     /**
      * @return HasOne<UserState, $this>

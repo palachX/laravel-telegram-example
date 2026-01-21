@@ -72,7 +72,7 @@ final readonly class Handler
          * } $userDecode
          */
         $userDecode = json_decode($user, true, 512, JSON_THROW_ON_ERROR);
-        $user = $this->userRepository->getUserByChatId($userDecode['id'], true);
+        $user = $this->userRepository->getUserByChatId($userDecode['id']);
 
         $tokenData = $this->userTokenRepository->getByUserId($user->id);
 

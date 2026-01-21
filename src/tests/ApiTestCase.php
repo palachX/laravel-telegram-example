@@ -10,7 +10,6 @@ use Tests\TestCase as BaseTestCase;
 
 abstract class ApiTestCase extends BaseTestCase
 {
-
     protected function setUp(): void
     {
         parent::setUp();

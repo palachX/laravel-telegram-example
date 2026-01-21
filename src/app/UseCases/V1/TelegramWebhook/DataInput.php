@@ -7,7 +7,6 @@ namespace App\UseCases\V1\TelegramWebhook;
 use AllowDynamicProperties;
 use App\DTO\Telegram\CallbackQuery;
 use App\DTO\Telegram\TelegramMessage;
-use Illuminate\Support\Facades\Log;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Mappers\SnakeCaseMapper;

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Repositories;
 
-use App\DTO\Telegram\UserData;
 use App\Models\User;
+use App\Telegram\DTO\UserData;
 
 final class UserRepository
 {

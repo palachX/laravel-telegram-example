@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Factories\HandlerAbstract;
 
-use App\DTO\Telegram\Contact;
+use App\Telegram\DTO\Contact;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Mappers\SnakeCaseMapper;

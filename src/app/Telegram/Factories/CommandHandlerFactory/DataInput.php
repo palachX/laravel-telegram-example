@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Factories\Telegram\StateHandlerFactory;
+namespace App\Telegram\Factories\CommandHandlerFactory;
 
-use App\DTO\Telegram\TelegramMessage;
+use App\Telegram\DTO\TelegramMessage;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Mappers\SnakeCaseMapper;
@@ -13,17 +13,19 @@ use Spatie\LaravelData\Mappers\SnakeCaseMapper;
 final class DataInput extends Data
 {
     public function __construct(
+        public readonly string $message,
         public readonly int $userId
     ) {
     }
 
     public static function createFromMessage(?TelegramMessage $data): self
     {
-        if ($data === null) {
-            throw new \LogicException('Message cannot be null for State factory');
+        if (is_null($data) || is_null($data->text)) {
+            throw new \LogicException('Message cannot be null for command factory');
         }
 
         return new self(
+            message: $data->text,
             userId: $data->from->id
         );
     }

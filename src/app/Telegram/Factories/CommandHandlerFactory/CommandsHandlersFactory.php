@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Factories\Telegram\CommandHandlerFactory;
+namespace App\Telegram\Factories\CommandHandlerFactory;
 
 use App\Exceptions\UnknownCommandException;
 use App\Factories\Interfaces\HandlerFactory;

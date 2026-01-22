@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Factories\Telegram\StateHandlerFactory;
+namespace App\Telegram\Factories\StateHandlerFactory;
 
 use App\Exceptions\UnknownStateException;
 use App\Factories\Interfaces\HandlerFactory;

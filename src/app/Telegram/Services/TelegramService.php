@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Services\Telegram;
+namespace App\Telegram\Services;
 
+use App\Telegram\DTO\MessagePayload;
 use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;

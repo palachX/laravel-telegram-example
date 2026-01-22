@@ -2,10 +2,8 @@
 
 declare(strict_types=1);
 
-namespace App\Services\Telegram;
+namespace App\Telegram\DTO;
 
-use App\DTO\Telegram\InlineKeyboardMarkup;
-use App\DTO\Telegram\ReplyKeyboardMarkup;
 use JsonException;
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Data;

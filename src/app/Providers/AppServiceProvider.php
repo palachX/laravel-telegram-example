@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use App\Factories\Telegram\CommandHandlerFactory\CommandsHandlersFactory;
-use App\Factories\Telegram\StateHandlerFactory\StatesHandlersFactory;
 use App\Repositories\UserRepository;
 use App\Repositories\UserStateRepository;
 use App\Repositories\UserTokenRepository;
-use App\Services\Telegram\TelegramService;
+use App\Telegram\Factories\CommandHandlerFactory\CommandsHandlersFactory;
+use App\Telegram\Factories\StateHandlerFactory\StatesHandlersFactory;
 use App\Telegram\Interfaces\BaseHandler;
+use App\Telegram\Services\TelegramService;
 use App\UseCases\V1\TelegramInitData\Handler as InitDataHandler;
 use Illuminate\Support\ServiceProvider;
 

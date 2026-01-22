@@ -6,10 +6,10 @@ namespace App\Factories\HandlerAbstract;
 
 use App;
 use App\Factories\Interfaces\HandlerFactory;
-use App\Factories\Telegram\CommandHandlerFactory\CommandsHandlersFactory;
-use App\Factories\Telegram\CommandHandlerFactory\DataInput as CommandHandlerFactoryDataInput;
-use App\Factories\Telegram\StateHandlerFactory\DataInput as StateHandlerFactoryDataInput;
-use App\Factories\Telegram\StateHandlerFactory\StatesHandlersFactory;
+use App\Telegram\Factories\CommandHandlerFactory\CommandsHandlersFactory;
+use App\Telegram\Factories\CommandHandlerFactory\DataInput as CommandHandlerFactoryDataInput;
+use App\Telegram\Factories\StateHandlerFactory\DataInput as StateHandlerFactoryDataInput;
+use App\Telegram\Factories\StateHandlerFactory\StatesHandlersFactory;
 use App\UseCases\V1\TelegramWebhook\DataInput as TelegramWebhookDataInput;
 use Exception;
 use Illuminate\Contracts\Container\BindingResolutionException;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\DTO\Telegram;
+namespace App\Telegram\DTO;
 
 use Spatie\LaravelData\Attributes\MapName;
 use Spatie\LaravelData\Mappers\SnakeCaseMapper;

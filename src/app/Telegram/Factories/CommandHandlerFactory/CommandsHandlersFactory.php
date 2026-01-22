@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Telegram\Factories\CommandHandlerFactory;
 
 use App\Exceptions\UnknownCommandException;
-use App\Factories\Interfaces\HandlerFactory;
 use App\Telegram\CommandHandlers\CommandHandlerDataInput;
 use App\Telegram\Interfaces\BaseHandler;
+use App\Telegram\Interfaces\HandlerFactory;
 use App\UseCases\V1\TelegramWebhook\DataInput as TelegramWebhookDataInput;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Support\Facades\App;

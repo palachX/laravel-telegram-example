@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Telegram\Factories\StateHandlerFactory;
 
 use App\Exceptions\UnknownStateException;
-use App\Factories\Interfaces\HandlerFactory;
 use App\Repositories\UserStateRepository;
 use App\Telegram\Interfaces\BaseHandler;
+use App\Telegram\Interfaces\HandlerFactory;
 use App\Telegram\StateHandlers\StateHandlerDataInput;
 use App\UseCases\V1\TelegramWebhook\DataInput as TelegramWebhookDataInput;
 use Illuminate\Contracts\Container\BindingResolutionException;

@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace App\Factories\Interfaces;
+namespace App\Telegram\Interfaces;
 
-use App\Telegram\Interfaces\BaseHandler;
 use App\UseCases\V1\TelegramWebhook\DataInput;
 use Spatie\LaravelData\Data;
 

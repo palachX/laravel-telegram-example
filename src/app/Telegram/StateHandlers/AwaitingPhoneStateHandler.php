@@ -11,7 +11,6 @@ use App\Repositories\UserRepository;
 use App\Repositories\UserStateRepository;
 use App\Telegram\Interfaces\BaseHandler;
 use InvalidArgumentException;
-use JsonException;
 use Spatie\LaravelData\Data;
 
 //TODO тут вы можете реализовать свою отправку кода через удобный для вас сервис
@@ -32,8 +31,6 @@ final readonly class AwaitingPhoneStateHandler implements BaseHandler
 
     /**
      * @param  StateHandlerDataInput  $data
-     *
-     * @throws JsonException
      */
     public function handle(int $chatId, Data $data): void
     {

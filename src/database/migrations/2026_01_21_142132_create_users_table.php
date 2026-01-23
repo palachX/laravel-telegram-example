@@ -16,13 +16,17 @@ return new class extends Migration
 
             $table->char('phone', 12)
                 ->nullable()
+                ->index()
                 ->comment('Номер телефона пользователя');
 
             $table->id('telegram_id')
+                ->index()
                 ->comment('ID пользователя в Telegram');
 
             $table->string('username')
-                ->nullable()->comment('Ник пользователя в телеграме');
+                ->index()
+                ->nullable()
+                ->comment('Ник пользователя в телеграме');
 
             $table->string('first_name')
                 ->nullable()->comment('Имя пользователя в телеграме');
